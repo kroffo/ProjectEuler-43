@@ -12,7 +12,7 @@
               true
               (recur (inc i))))))))
 
-  (defn hasWeirdProperty? [number]
+  (defn has-weird-property? [number]
     (let [numstring (str number)]
       (and (= 0 (mod (. Integer parseInt (subs numstring 1 4)) 2))
            (= 0 (mod (. Integer parseInt (subs numstring 2 5)) 3))
@@ -23,17 +23,13 @@
            (= 0 (mod (. Integer parseInt (subs numstring 7 10)) 17)))))
 
 ;  Test function calls
- (if (pandigital0-9? 1406357289)
-   (println "True")
-   (println "False"))
- (if (hasWeirdProperty? 1406357289)
-   (println "True")
-   (println "False"))
-
+ (println (pandigital0-9? 1406357289))
+ (println (has-weird-property? 1406357289))
+ 
 
    (def total 0)
    (loop [i 1023456789]
-     (if (and (pandigital0-9? i) (hasWeirdProperty? i))
+     (if (and (pandigital0-9? i) (has-weird-property? i))
        (do (println i) (def total (+ total i)) (recur (inc i)))
        (if (< i 9876543211)
          (recur (inc i))

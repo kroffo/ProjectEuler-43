@@ -14,18 +14,13 @@
 
   (defn hasWeirdProperty? [number]
     (let [numstring (str number)]
-      (if (= 0 (mod (. Integer parseInt (subs numstring 1 4)) 2))
-        (if (= 0 (mod (. Integer parseInt (subs numstring 2 5)) 3))
-          (if (= 0 (mod (. Integer parseInt (subs numstring 3 6)) 5))
-            (if (= 0 (mod (. Integer parseInt
-                             (subs numstring 4 7)) 7))
-              (if (= 0 (mod (. Integer parseInt
-                               (subs numstring 5 8)) 11))
-                (if (= 0 (mod (. Integer parseInt
-                                 (subs numstring 6 9)) 13))
-                  (if ( = 0 (mod (. Integer parseInt
-                                    (subs numstring 7 10)) 17))
-                    true)))))))))
+      (and (= 0 (mod (. Integer parseInt (subs numstring 1 4)) 2))
+           (= 0 (mod (. Integer parseInt (subs numstring 2 5)) 3))
+           (= 0 (mod (. Integer parseInt (subs numstring 3 6)) 5))
+           (= 0 (mod (. Integer parseInt (subs numstring 4 7)) 7))
+           (= 0 (mod (. Integer parseInt (subs numstring 5 8)) 11))
+           (= 0 (mod (. Integer parseInt (subs numstring 6 9)) 13))
+           (= 0 (mod (. Integer parseInt (subs numstring 7 10)) 17)))))
 
 ;  Test function calls
  (if (pandigital0-9? 1406357289)
